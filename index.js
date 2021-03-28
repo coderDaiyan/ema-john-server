@@ -59,7 +59,7 @@ client.connect((err) => {
     const order = req.body;
     console.log(order);
     ordersCollection.insertOne(order).then((result) => {
-      res.send(result.insertedCount > 0);
+      res.send({ inserted: result.insertedCount });
     });
   });
   console.log("db connection success");
