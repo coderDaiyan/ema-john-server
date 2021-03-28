@@ -14,7 +14,9 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-console.log(process.env.DB_USER);
+app.get("/", (req, res) => {
+  res.send("MongoDB Working");
+});
 
 client.connect((err) => {
   const productCollection = client.db("emaJohnStore").collection("products");
